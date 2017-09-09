@@ -37,6 +37,10 @@ gem 'jbuilder', '~> 2.5'
 # Use haml for views instead of ERB
 gem 'haml-rails', '~> 1.0'
 
+# Twitter bootstrap v4
+gem 'bootstrap', '~> 4.0.0.beta'
+gem 'jquery-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -45,10 +49,10 @@ group :development, :test do
   gem 'selenium-webdriver'
 
   # Use rspec with factory girl as test framework
+  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'pry-rescue'
-  gem 'rspec-rails'
 end
 
 group :development do
@@ -59,7 +63,11 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
+  # Use rubocop for code style consistency
   gem 'rubocop', '~> 0.49.1', require: false
+
+  # More informative development errors
+  gem 'better_errors'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
