@@ -49,10 +49,14 @@ group :development, :test do
   gem 'selenium-webdriver'
 
   # Use rspec with factory girl as test framework
-  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'pry-rescue'
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'simplecov', require: false
 end
 
 group :development do

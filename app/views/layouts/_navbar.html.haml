@@ -1,0 +1,16 @@
+%nav.navbar.navbar-expand-md.navbar-light.bg-light
+  %a.navbar-brand#logo-img{:href => "/"}
+    =image_tag('ascension-logo.png', size: '65x26')
+  %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item.active
+        %a.nav-link{:href => "/users"}
+          Users
+          %span.sr-only (current)
+      %li.nav-item
+        %a.nav-link{:href => "/roles"}
+          Roles
+    %span.my-2.my-lg-0
+      Logged in User 

@@ -1,0 +1,21 @@
+.container
+  = form_for @role do |f|
+    - if @role.errors.any?
+      #error_explanation.alert.alert-danger.fade.show{ role: 'alert' }
+        %button.close{ type: 'button', 'data-dismiss' => 'alert', 'aria-label' => 'Close' }
+          %span{ 'aria-hidden' => 'true' } &times;
+        %p= "#{pluralize(@role.errors.count, "error")} prohibited this role from being saved:"
+        %ul
+          - @role.errors.full_messages.each do |message|
+            %li= message
+
+    .card
+      .card-header Change Role Name
+      .card-body
+        .field
+          = f.label :name
+          = f.text_field :name
+      .card-footer
+        = f.submit 'Change Role Name', class: 'btn btn-primary card-link'
+        = link_to 'Cancel', roles_path, role: 'button', class: 'btn btn-secondary card-link'
+                
