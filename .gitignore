@@ -24,3 +24,6 @@
 
 # Ignore coverage statistics
 coverage
+
+.env
+config/secrets.yml

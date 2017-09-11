@@ -39,7 +39,11 @@ gem 'haml-rails', '~> 1.0'
 
 # Twitter bootstrap v4
 gem 'bootstrap', '~> 4.0.0.beta'
+gem 'bootstrap_form'
 gem 'jquery-rails'
+
+# Use devise to manage users
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

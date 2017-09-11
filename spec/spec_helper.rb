@@ -15,8 +15,14 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
 require 'simplecov'
-SimpleCov.start 'rails'
+SimpleCov.start 'rails' do |_file|
+  add_filter %r{^/app/channels}
+  add_filter %r{^/app/mailers}
+  add_filter %r{^/app/jobs}
+  add_filter %r{^/app/controllers/users/} # devise code
+end
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

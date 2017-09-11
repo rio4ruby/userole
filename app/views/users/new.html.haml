@@ -1,0 +1,24 @@
+.container
+  = form_for(@user) do |f|
+    = render partial: 'users/messages', locals: { resource: @user }
+    .card
+      .card-header Add New User
+      .card-body
+        .field
+          = f.label :email
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: 'off'
+        .field
+          = f.label :password
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %br/
+          = f.password_field :password, autocomplete: "off"
+        .field
+          = f.label :password_confirmation
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "off"
+      .card-footer
+        = f.submit 'Add User', class: 'btn btn-primary card-link'
+        = link_to 'Cancel', users_path, role: 'button', class: 'btn btn-secondary card-link'

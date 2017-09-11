@@ -26,6 +26,14 @@ require 'rails_helper'
 # `rails-controller-testing` gem.
 
 RSpec.describe RolesController, type: :controller do
+  let(:admin_user) do
+    CreateUserService['admin@test.com', 'xxxxxx', :admin]
+  end
+
+  before do
+    sign_in admin_user
+  end
+
   # This should return the minimal set of attributes required to create a valid
   # Role. As you add validations to Role, be sure to
   # adjust the attributes here as well.

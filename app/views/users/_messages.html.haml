@@ -1,0 +1,9 @@
+- if resource.errors.any?
+  #error_explanation.alert.alert-danger.fade.show{ role: 'alert' }
+    %button.close{ type: 'button', 'data-dismiss' => 'alert', 'aria-label' => 'Close' }
+      %span{ 'aria-hidden' => 'true' } &times;
+    %p= "#{pluralize(resource.errors.count, "error")} prohibited this role from being saved:"
+    %ul
+      - resource.errors.full_messages.each do |message|
+        %li= message
+

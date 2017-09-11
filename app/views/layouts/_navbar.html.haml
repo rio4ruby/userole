@@ -5,12 +5,20 @@
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
-      %li.nav-item.active
+      %li.nav-item
         %a.nav-link{:href => "/users"}
           Users
           %span.sr-only (current)
-      %li.nav-item
-        %a.nav-link{:href => "/roles"}
-          Roles
-    %span.my-2.my-lg-0
-      Logged in User 
+      - if current_user.try(:admin?)
+        %li.nav-item
+          %a.nav-link{:href => "/roles"}
+            Roles
+    - if user_signed_in?
+      %ul.navbar-nav
+        %li.nav-item.dropdown
+          %a.nav-link.dropdown-toggle#navbarDropdownMenuLink{href: '/', 'data-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false'}
+            = current_user.email
+            %i.material-icons
+              account_circle
+          .dropdown-menu{'aria-labelledby': 'navbarDropdownMenuLink'}
+            = link_to('Logout', destroy_user_session_path, method: :delete)

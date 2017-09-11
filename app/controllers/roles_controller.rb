@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class RolesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :check_user_allowed!
   before_action :set_role, only: %i[edit update destroy]
 
   # GET /roles
@@ -58,6 +60,11 @@ class RolesController < ApplicationController
   end
 
   private
+
+  # make sure current user is an admin
+  def check_user_allowed!
+    raise 'Must be an admin to manage roles' unless current_user.try(:admin?)
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_role

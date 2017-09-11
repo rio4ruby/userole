@@ -1,5 +1,5 @@
 header {
-    padding-bottom: 1em;
+    padding-bottom: 0.3em;
 }
 footer {
     padding-top: 1em;
@@ -23,4 +23,7 @@ body {
             }
         }
     }
+}
+.control-cell {
+    width: 32px;
 }

@@ -1,0 +1,27 @@
+.container
+  .card
+    .card-header Users
+    .card-body
+      .card-text
+        %table.table.table-hover
+          %thead.thead-inverse
+            %tr
+              %th Username
+              %th Roles
+              %th
+              %th
+
+          %tbody
+            - @users.each do |user|
+              %tr
+                %td= user.email
+                %td= user.role_names.join(', ')
+                %td.control-cell
+                  - if current_user.can_edit?(user)
+                    = link_to '<i class="material-icons md-18">list</i>'.html_safe, edit_user_path(user), title: 'Edit User'
+                %td.control-cell
+                  - if current_user.can_delete?(user)   
+                    = link_to '<i class="material-icons md-18">delete</i>'.html_safe, user, method: :delete, title: 'Delete User'
+    .card-footer
+      - if current_user.can_create?
+        = link_to 'Add New User', new_user_path, role: 'button', class: 'btn btn-primary card-link'
