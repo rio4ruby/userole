@@ -9,8 +9,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Create some users and roles
-CreateUserService['admin@kitatdot.net', 'adminadmin', :admin]
-CreateUserService['boss@kitatdot.net', 'bossboss', :admin, :manager]
-CreateUserService['user@kitatdot.net', 'useruser', :member]
+CreateUserService['admin@example.com', 'adminadmin', :admin]
+CreateUserService['boss@example.com', 'bossboss', :admin, :manager]
+CreateUserService['user@example.com', 'useruser', :member]
 puts 'Created roles: ' + Role.all.map(&:name).join(', ')
 puts 'Created users: ' + User.all.map(&:email).join(', ')
