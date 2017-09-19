@@ -8,4 +8,8 @@ class Role < ApplicationRecord
             presence: true,
             format: { with: /\A[a-z]+\z/, message: 'only allows lowercase letters' },
             uniqueness: true
+
+  def in_use?
+    users.size != 0
+  end
 end

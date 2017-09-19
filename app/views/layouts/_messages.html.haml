@@ -1,6 +1,6 @@
 - flash.each do |name, msg|
-  %div.alert.alert-success.alert-dismissible.fade.show{ role: 'alert' }
+  - alert_class = name == 'alert' ? 'alert-danger' : 'alert-success'
+  %div.alert.alert-dismissible.fade.show{ role: 'alert', class: alert_class }
     %button.close{ type: 'button', 'data-dismiss' => 'alert', 'aria-label' => 'Close' }
       %span{ 'aria-hidden' => 'true' } &times;
     = msg
-      
